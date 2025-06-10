@@ -4,6 +4,7 @@ import FirstAnimation from "./components/FirstAnimation";
 import HeroSection from "./components/HeroSection";
 import { ReactLenis } from "lenis/react";
 import StackSection from "./components/StackSection";
+import ProjectsSection from "./components/ProjectsSection";
 export default function HomePage() {
   const [showAnimation, setShowAnimation] = useState(true);
 
@@ -20,6 +21,7 @@ export default function HomePage() {
         <div>
           <HeroSection />
           <StackSection />
+          <ProjectsSection />
         </div>
       )}
     </ReactLenis>
