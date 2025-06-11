@@ -25,7 +25,7 @@ export default function HomePage() {
         <FirstAnimation />
       ) : (
         <>
-          <div ref={container} className="h-[200vh] relative">
+          <div ref={container} className="h-[200vh] relative bg-[#767474]">
             <HeroSection scrollYProgress={scrollYProgress} />
             <StackSection scrollYProgress={scrollYProgress} />
           </div>
