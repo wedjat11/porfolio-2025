@@ -1,13 +1,20 @@
 import React from "react";
 import * as motion from "motion/react-client";
+import { MotionValue, useTransform } from "motion/react";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  scrollYProgress: MotionValue<number>;
+}
+export default function HeroSection({ scrollYProgress }: HeroSectionProps) {
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
+    <motion.section
+      style={{ scale, rotate }}
+      initial={{ opacity: 0, scale: 1, rotate: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="h-screen bg-hero w-full items-center flex flex-col justify-center gap-9"
+      className=" sticky top-0 h-screen bg-hero w-full items-center flex flex-col justify-center gap-9 "
     >
       <motion.div
         className="absolute top-0 p-3 left-0 w-1/2 flex flex-col  "
@@ -54,6 +61,6 @@ export default function HeroSection() {
           striving to improve.
         </p>
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 }
